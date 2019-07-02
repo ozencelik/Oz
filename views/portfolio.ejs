@@ -14,6 +14,9 @@
 	<link rel="stylesheet" href="theme/vendors/nice-select/css/nice-select.css">
 	<!-- main css -->
 	<link rel="stylesheet" href="theme/css/style.css">
+    
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/4f04fd6ff4.js"></script>
 </head>
 
 <body>
@@ -61,12 +64,25 @@
     		
             <div class="filters-content">
 				<div class="row portfolio-grid justify-content-center">
-                    <!--
-
-					
-
-
-                    -->
+                    <% portfolios.forEach(function(portfolio) { %>
+                        <div class="col-lg-4 col-md-6 all latest">
+                            <div class="portfolio_box">
+                                <div class="single_portfolio">
+                                    <img class="img-fluid w-100" src="<%= portfolio.imagePath %>" alt="">
+                                    <div class="overlay"></div>
+                                    <a href="<%= portfolio.imagePath %>" class="img-gal">
+                                        <div class="icon">
+                                            <span class="lnr lnr-cross"></span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="short_info">
+                                    <h4><a href="portfolio-details.html"><%= portfolio.title %></a></h4>
+                                    <p><%= portfolio.type %></p>
+                                </div>
+                            </div>
+                        </div>
+                    <% }); %>
 				</div>
         	</div>
         </div>

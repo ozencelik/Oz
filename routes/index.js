@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+var Portfolio = require('../models/portfolio');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Home' });
@@ -16,9 +18,10 @@ router.get('/services', function(req, res, next) {
   res.render('services', { title: 'Services' });
 });
 
-
 router.get('/portfolio', function(req, res, next) {
-  res.render('portfolio', { title: 'Portfolio' });
+  Portfolio.find(function(err, docs){
+  	res.render('portfolio', { title: 'Oz-Portfolio', portfolios: docs});
+  });
 });
 
 
@@ -34,9 +37,10 @@ router.get('/contact', function(req, res, next) {
 
 
 
+/* AUTH ROUTES */
 
 router.get('/signup', function(req, res, next) {
-  res.render('user/signup', { title: 'Signup' });
+  res.render('signup', { title: 'Signup' });
 });
 
 
