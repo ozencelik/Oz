@@ -9,7 +9,9 @@ var rootFilePath = require('app-root-path');
 
 
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Home' });
+  Portfolio.find(function(err, docs){
+    res.render('index', { title: 'Home', portfolios: docs});
+  });
 });
 /////////////////////////////////////////////////////
 
