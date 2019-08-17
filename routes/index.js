@@ -2,11 +2,11 @@ var express = require('express');
 var router = express.Router();
 
 var Portfolio = require('../models/portfolio');
-
 var rootFilePath = require('app-root-path');
 
-
-
+var csrf = require('csurf');
+var csrfProtection = csrf();
+router.use(csrfProtection);
 
 router.get('/', function(req, res, next) {
   Portfolio.find(function(err, docs){
@@ -42,7 +42,7 @@ router.get('/contact', function(req, res, next) {
 /* AUTH ROUTES */
 
 router.get('/signup', function(req, res, next) {
-  res.render('signup', { title: 'Signup' });
+  res.render('signup', { csrfProtection: req.csrfToken, title: 'Signup' });
 });
 router.get('/signin', function(req, res, next) {
   res.render('signin', { title: 'Signin' });

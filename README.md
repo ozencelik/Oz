@@ -1,4 +1,4 @@
-# Oz developed by using Express(Node.js) framework and basic Html,Css,JavaScript.
+# Oz, developed by using Express(Node.js) framework and basic Html,Css,JavaScript.
 
 ## Installation
 Firstly, you need to install [Node.js](https://nodejs.org/en/) to use `npm` and [Git](https://git-scm.com/downloads) to use `git` in command prompt,
