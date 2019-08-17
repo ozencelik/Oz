@@ -10,9 +10,10 @@ var indexRouter = require('./routes/index');
 
 var app = express();
 
+require('dotenv').config();
 
-mongoose.connect('mongodb://localhost:27017/Oz', { useNewUrlParser: true });
-
+//mongoose.connect('mongodb://localhost:27017/Oz', { useNewUrlParser: true });
+mongoose.connect(process.env.mongolab-opaque-78562 || 'mongodb://localhost/oz-portfolio', { useNewUrlParser: true });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
